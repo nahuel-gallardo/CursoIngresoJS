@@ -6,6 +6,8 @@ function mostrar()
 {
 	let nombrePersona;
 	nombrePersona = prompt("cuál es tu nombre?");
-	alert(nombrePersona);
+	let apellidoPersona;
+	apellidoPersona = prompt("cual es tu apeliido?");
+	alert("Tu nombre es:  " + nombrePersona + " tu apeliido es: " + apellidoPersona);
 }
 
