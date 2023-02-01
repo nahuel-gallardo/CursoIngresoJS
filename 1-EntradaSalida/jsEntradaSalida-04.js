@@ -10,7 +10,7 @@ function mostrar()
 
 	datoIngresado = prompt("Ingresar dato");
 
-	document.getElementById("txtIdNombre").value = datoIngresado
+	document.getElementById("txtIdNombre").value = datoIngresado;
 
 	//busco como acceder a la cajita del HTML
 
