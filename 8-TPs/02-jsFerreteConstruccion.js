@@ -35,7 +35,7 @@ function Circulo ()
 
     radio = parseInt(radio);
 
-    perimetroCirculo = (radio * radio) * 3.14;
+    perimetroCirculo = 2 * radio * 3.14;
 
     mensaje = perimetroCirculo * 3;
 
