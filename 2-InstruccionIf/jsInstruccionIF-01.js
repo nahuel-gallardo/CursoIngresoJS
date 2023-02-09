@@ -7,7 +7,7 @@ function mostrar()
 	 let mensaje;
 
 	 distancia = parseInt(document.getElementById("txtIdEdad").value);
-	 tiempo    = parseInt(prompt("¿cuantas horas tardo tardo?"));
+	 tiempo    = parseFloat(prompt("¿cuantas horas tardo tardo?"));
 
 	 velocidad = distancia/tiempo;
 
@@ -47,59 +47,59 @@ function mostrar()
 
 // ejercicio 1 bis bis
 
-  let altura;
-  let peso;
-  let IMC;
-  let mensaje;
+          let altura;
+          let peso;
+          let IMC;
+          let mensaje;
 
-    altura = parseInt(prompt("¿cual es tu altura?"));
+            altura = parseFloat(prompt("¿cual es tu altura?"));
 
-    peso  = parseInt(document.getElementById("txtIdEdad").value);
+            peso  = parseInt(document.getElementById("txtIdEdad").value);
 
- 
+        
 
-  IMC = peso / altura * altura ;
+              IMC = peso / (altura * altura) ;
 
-  if(IMC < 18.5)
-  {
-		mensaje = IMC + " bajo peso";
+              if(IMC < 18.5)
+              {
+                mensaje = IMC + " bajo peso";
 
-		alert(mensaje);
-  }
+                alert(mensaje);
+              }
 
-  else if(IMC > 18.5 && IMC <=24.9)
-  {
-	mensaje = IMC + " peso normal";
+              else if(IMC > 18.5 && IMC <=24.9)
+              {
+              mensaje = IMC + " peso normal";
 
-	alert(mensaje);
-  }
+              alert(mensaje);
+              }
 
-  else if(IMC >= 25 && IMC <= 26.9)
-  {
-	mensaje = IMC + "preobesidad";
+              else if(IMC >= 25 && IMC <= 26.9)
+              {
+              mensaje = IMC + "preobesidad";
 
-	alert(mensaje);
-  }
+              alert(mensaje);
+              }
 
-  else if(IMC >= 27 && IMC <= 29.9)
-  {
-	mensaje = IMC + " obesidad 1";
+              else if(IMC >= 27 && IMC <= 29.9)
+              {
+              mensaje = IMC + " obesidad 1";
 
-	alert(mensaje);
-  }
-  else if(IMC >= 30 && IMC <= 34.9)
-  {
-	mensaje = IMC + " obesidad 2";
+              alert(mensaje);
+              }
+              else if(IMC >= 30 && IMC <= 34.9)
+              {
+              mensaje = IMC + " obesidad 2";
 
-	alert(mensaje);
-  }
+              alert(mensaje);
+              }
 
-  else 
-  {
-	mensaje = IMC + " obesidad 3";
+              else 
+              {
+              mensaje = IMC + " obesidad 3";
 
-	alert(mensaje);
-  }
+              alert(mensaje);
+              }
 
 
 
