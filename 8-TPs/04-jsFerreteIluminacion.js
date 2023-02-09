@@ -10,5 +10,151 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
- 	
+ 	let cantidadDeLamparas;
+    let precioLamparas;
+    let descuento;
+    let precioFinal;
+    let precioFinalConDescuento;
+    let marcaLamparas;
+    let precioConImpuesto;
+    let ingresosBrutos;
+    let mensaje;
+
+
+    precioLamparas     = 35
+    cantidadDeLamparas = parseInt(document.getElementById("txtIdCantidad").value);
+
+    marcaLamparas = document.getElementById("Marca").value;
+
+
+    if(cantidadDeLamparas >= 6)
+    {   
+        descuento = 50
+        descuento = 1 - 50/100
+
+        precioFinal = cantidadDeLamparas * precioLamparas;
+
+        precioFinalConDescuento = precioFinal * descuento;
+
+        document.getElementById("txtIdprecioDescuento").value =  precioFinalConDescuento;
+
+        if(precioFinalConDescuento > 120)
+        {
+            ingresosBrutos = 10;
+            ingresosBrutos = 1 + 10/100;
+    
+            precioConImpuesto = precioFinalConDescuento * ingresosBrutos - precioFinalConDescuento;
+    
+            mensaje = "Usted pago " + precioConImpuesto.toFixed(2) + "de IIBB.";
+    
+            alert(mensaje);
+        }
+    }
+
+    else if(cantidadDeLamparas == 5 && marcaLamparas == "ArgentinaLuz")
+    {
+        descuento = 40
+        descuento = 1 - descuento/100
+
+        precioFinal = cantidadDeLamparas * precioLamparas;
+
+        precioFinalConDescuento = precioFinal * descuento;
+
+        document.getElementById("txtIdprecioDescuento").value =  precioFinalConDescuento.toFixed(2);
+    }
+
+    else if(cantidadDeLamparas == 5 && marcaLamparas != "ArgentinaLuz" )
+    {
+        descuento = 30
+        descuento = 1 - descuento/100
+
+        precioFinal = cantidadDeLamparas * precioLamparas;
+
+        precioFinalConDescuento = precioFinal * descuento;
+
+        document.getElementById("txtIdprecioDescuento").value =  precioFinalConDescuento.toFixed(2);
+    }
+
+    else if(cantidadDeLamparas == 4 && (marcaLamparas == "ArgentinaLuz" || marcaLamparas == "FelipeLamparas" ))
+    {
+        descuento = 25;
+        descuento = 1 - descuento/100;
+
+        precioFinal = cantidadDeLamparas * precioLamparas;
+
+        precioFinalConDescuento = precioFinal * descuento;
+
+        document.getElementById("txtIdprecioDescuento").value =  precioFinalConDescuento.toFixed(2);
+    }
+
+    else if(cantidadDeLamparas == 4 && (marcaLamparas  != "ArgentinaLuz" || marcaLamparas != "FelipeLamparas" ))
+    {
+        descuento = 20;
+        descuento = 1 - descuento/100;
+
+        precioFinal = cantidadDeLamparas * precioLamparas;
+
+        precioFinalConDescuento = precioFinal * descuento;
+
+        document.getElementById("txtIdprecioDescuento").value =  precioFinalConDescuento.toFixed(2);
+    }
+    
+    else if(cantidadDeLamparas == 3 && marcaLamparas == "ArgentinaLuz")
+    {
+        descuento = 15;
+        descuento = 1 - descuento/100;
+
+        precioFinal = cantidadDeLamparas * precioLamparas;
+
+        precioFinalConDescuento = precioFinal * descuento;
+
+        document.getElementById("txtIdprecioDescuento").value =  precioFinalConDescuento.toFixed(2);
+    }
+    
+    else if(cantidadDeLamparas == 3 && marcaLamparas == "FelipeLamparas")
+    {
+        descuento = 10;
+        descuento = 1 - descuento/100;
+
+        precioFinal = cantidadDeLamparas * precioLamparas;
+
+        precioFinalConDescuento = precioFinal * descuento;
+
+        document.getElementById("txtIdprecioDescuento").value =  precioFinalConDescuento.toFixed(2);
+    } 
+
+    else if(cantidadDeLamparas == 3 && (marcaLamparas != "ArgentinaLuz" && marcaLamparas != "FelipeLamparas")) 
+    {
+        descuento = 5;
+        descuento = 1 - descuento/100;
+
+        precioFinal = cantidadDeLamparas * precioLamparas;
+
+        precioFinalConDescuento = precioFinal * descuento;
+
+        document.getElementById("txtIdprecioDescuento").value =  precioFinalConDescuento.toFixed(2);
+    
+    }
+    else if (precioFinalConDescuento > 120)
+    {
+        ingresosBrutos = 10;
+        ingresosBrutos = 1 + 10/100;
+
+        precioConImpuesto = precioFinalConDescuento * ingresosBrutos;
+
+        mensaje = "Usted pago " + precioConImpuesto + "de IIBB.";
+
+        alert(mensaje);
+    }
+
+
+    
+        
+
+
+
+
+
+
+
 }
