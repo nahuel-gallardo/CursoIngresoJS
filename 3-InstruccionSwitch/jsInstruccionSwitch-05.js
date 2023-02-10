@@ -14,8 +14,15 @@ function mostrar()
 			case 8 :
 			case 9 :
 			case 10:
-			case 
+			case 11:
+				mensaje = "es de mañana"
+			default:
+				break;
 		}
+	}
+	else
+	{
+		mensaje = "esa hora no existe";
 	}
 
 	alert(mensaje);
