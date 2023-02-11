@@ -88,6 +88,10 @@ function CalcularPrecio ()
             alert(mensaje);
         }
         */
+
+
+
+        /*
         if(cantidadDeLamparas >= 6)
         {   
             descuento = 50;
@@ -162,7 +166,159 @@ function CalcularPrecio ()
             mensaje = "Usted pago " + precioConImpuesto.toFixed(2) + " de IIBB.";
     
             alert(mensaje);
+        }*/
+
+
+
+
+        //Con switch(cantidad) y if (marca)
+        
+        /*
+        switch(cantidadDeLamparas)
+        {
+            case 5:
+                {
+                    if(marcaLamparas == "ArgentinaLuz"){
+                        descuento = 40;
+                            }else{
+                            descuento = 30;
+                                 }
+                }
+                break;
+
+            case 4:
+                {
+                    if(marcaLamparas == "ArgentinaLuz" || marcaLamparas == "FelipeLamparas"){
+                        descuento = 25;
+                            }else{
+                                descuento = 20;
+                                 } 
+                }
+                break;
+
+            case 3:
+                {
+                    if(marcaLamparas == "ArgentinaLuz"){
+                        descuento = 15;
+                        }else if(marcaLamparas == "felipeLamparas"){
+                            descuento = 10;
+                                }else{
+                                    descuento = 5;
+                                }
+                }
+                break;
+
+            case 2:
+            case 1:
+                descuento = 0;
+                break;
+            default:
+                descuento = 50;
+                break;
+
         }
+        
+
+        descuento = descuento;
+        descuento = 1 - descuento/100;
+
+        precioFinal = cantidadDeLamparas * precioLamparas;
+
+        precioFinalConDescuento = precioFinal * descuento;
+
+        document.getElementById("txtIdprecioDescuento").value =  precioFinalConDescuento.toFixed(2);
+
+        if(precioFinalConDescuento > 120)
+        {
+            ingresosBrutos = 10;
+            ingresosBrutos = 1 + 10/100;
+    
+            precioConImpuesto = precioFinalConDescuento * ingresosBrutos - precioFinalConDescuento;
+    
+            mensaje = "Usted pago " + precioConImpuesto.toFixed(2) + " de IIBB.";
+
+            alert(mensaje);
+        }  */
+        
+        //TODO CON SWICH
+
+        switch(cantidadDeLamparas)
+        {
+            case 5:
+                switch(marcaLamparas)
+                {
+                    case "Argentina":
+                        descuento = 40;
+                        break;
+                    default:
+                        descuento = 30
+                        break;
+                }
+                break;
+
+            case 4:
+                switch(marcaLamparas)
+                {
+                    case "ArgentinaLuz":
+                    case "FelipeLamparas":
+                        descuento = 25;
+                        break;
+                    default:
+                        descuento = 20;
+                        break;
+                }
+                break;
+
+            case 3:
+                switch(marcaLamparas)
+                {
+                    case "ArgentinaLuz":
+                        descuento = 15;
+                        break;
+                    case "FelipeLamparas":
+                        descuento =10
+                        break;
+                    default:
+                        descuento = 5;
+                }
+                break;
+            case 2:
+            case 1:
+                descuento = 0;
+                break;
+            default :
+                descuento = 50
+                break;
+
+        }
+
+        descuento = descuento;
+        descuento = 1 - descuento/100;
+
+        precioFinal = cantidadDeLamparas * precioLamparas;
+
+        precioFinalConDescuento = precioFinal * descuento;
+
+        document.getElementById("txtIdprecioDescuento").value =  precioFinalConDescuento.toFixed(2);
+
+        if(precioFinalConDescuento > 120)
+        {
+            ingresosBrutos = 10;
+            ingresosBrutos = 1 + 10/100;
+    
+            precioConImpuesto = precioFinalConDescuento * ingresosBrutos - precioFinalConDescuento;
+    
+            mensaje = "Usted pago " + precioConImpuesto.toFixed(2) + " de IIBB.";
+
+            alert(mensaje);
+        }
+
+        
+
+
+
+
+
 
 
 
