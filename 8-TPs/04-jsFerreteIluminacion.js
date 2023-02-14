@@ -280,8 +280,10 @@ function CalcularPrecio ()
                         break;
                     default:
                         descuento = 5;
+                        break;
                 }
                 break;
+
             case 2:
             case 1:
                 descuento = 0;
@@ -312,25 +314,5 @@ function CalcularPrecio ()
 
             alert(mensaje);
         }
-
-        
-
-
-
-
-
-
-
-
-
-
-    
-        
-
-
-
-
-
-
 
 }
