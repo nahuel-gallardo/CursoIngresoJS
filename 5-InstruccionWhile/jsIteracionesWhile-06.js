@@ -12,7 +12,7 @@ function mostrar()
 	contador = 0;
 	
 
-	for(i = 0    ; i < 5   ; i++ )
+	for(i = 0   ; i < 5   ; i++ )
 	{
 	
 		numeroIngresado = parseFloat(prompt("ingrese un numero"));
