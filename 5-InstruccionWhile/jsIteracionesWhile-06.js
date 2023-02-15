@@ -4,28 +4,48 @@ function mostrar()
 	let i;
 	let promedio;
 	let acumulador;
+	let numeroIngresado;
 	let contador;
 
 	i = 0;
 	acumulador = 0;
+	contador = 0;
 	
 
-	contador = parseFloat(prompt("ingrese un numero"));
+	for(i = 0    ; i < 5   ; i++ )
+	{
+	
+		numeroIngresado = parseFloat(prompt("ingrese un numero"));
 
-	while(i < 5)
+		while(isNaN(numeroIngresado))//validacion
+		{
+			numeroIngresado = parseFloat(prompt("error. ingrese un numero"));
+
+		}
+
+		contador = contador + 1;
+		acumulador = acumulador + numeroIngresado;
+	}
+
+	/*while(i < 5)
 	{
 		i = i + 1;
 
-		contador = parseFloat(prompt("ingrese un numero"));
+		numeroIngresado = parseFloat(prompt("ingrese un numero"));
 
-		acumulador = acumulador + contador;
+		while(isNaN(numeroIngresado))//validacion
+		{
+			numeroIngresado = parseFloat(prompt("error. ingrese un numero"));
 
-		promedio = acumulador / i;
-	}
+		}
 
-	alert(i);
+		contador = contador + 1;
+		acumulador = acumulador + numeroIngresado;
+	}*/
 
-	document.getElementById("txtIdSuma").value = acumulador;
+	promedio = acumulador / contador;
+
+	document.getElementById("txtIdSuma").value     = acumulador;
 	document.getElementById("txtIdPromedio").value = promedio;
 	
 

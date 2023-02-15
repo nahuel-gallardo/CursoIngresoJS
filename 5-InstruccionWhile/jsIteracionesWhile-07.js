@@ -33,6 +33,8 @@ function mostrar()
 		promedio = acumulador / i;
 	}
 
+	
+
 	document.getElementById("txtIdSuma").value = acumulador;
 	document.getElementById("txtIdPromedio").value = promedio;
 
