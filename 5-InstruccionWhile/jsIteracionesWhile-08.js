@@ -8,11 +8,11 @@ function mostrar()
 	let respuesta;
 	let acumuladorDePositivos;
 	let multiplicacionNegativos;
-
 	
+
 	numeroIngresado = 0;
 	acumuladorDePositivos = 0;
-	multiplicacionNegativos = 0;
+	multiplicacionNegativos = 1;
 
 
 	respuesta = prompt("desea ingresar  numero?");
@@ -29,16 +29,16 @@ function mostrar()
 
 		}
 
+		if(numeroIngresado < 0 )
+		{
+			multiplicacionNegativos = multiplicacionNegativos * numeroIngresado;
+		}
+		else if(numeroIngresado > 0 )
+		{
+			acumuladorDePositivos =  acumuladorDePositivos + numeroIngresado ;
+		}
+		
 		respuesta = prompt("desea ingresar otro numero?");
-
-		if(numeroIngresado < 0)
-		{
-			multiplicacionNegativos = numeroIngresado * numeroIngresado;
-		}
-		else if(numeroIngresado > 0)
-		{
-			acumuladorDePositivos =  numeroIngresado + numeroIngresado ;
-		}
 
 	}
 

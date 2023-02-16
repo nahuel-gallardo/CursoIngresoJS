@@ -13,7 +13,7 @@ d)el total de la suma de los numeros pares
 e)el mayor de los numeros impares; 
 f)el mayor de los numeros; 
 */
-function mostrar()
+/*function mostrar()
 {
 	//declaro la varible
 	let i;
@@ -75,7 +75,70 @@ function mostrar()
 	console.log("el mayor de los numeros impares "+ mayorNumeroImpar); 
 	console.log("el mayor de los numeros es: "+ mayorNumero); 
 	
-}
+}*/
+
+//While 1 bis- edad y nombre , informar el nombre de la persona mas vieja y la mas joven
+
+	let edad;
+	let nombre;
+	let respuesta;
+	let banderaDelPrimero;
+	let mayorEdad;
+	let nombreMayor;
+	let nombreMenor;
+	let menorEdad;
+
+	respuesta = "si"
+
+	banderaDelPrimero = true;
+
+	
+
+	while(respuesta == "si" || respuesta == "SI" || respuesta == "Si")
+	{	
+		nombre = prompt("cual es su nombre?");
+
+		edad = parseInt(prompt("cual es su edad?"));
+
+		while(isNaN(edad) || edad < 0 || edad > 123)//validacion
+		{
+			edad = parseInt(prompt("error. ingrese un numero"));
+		}
+		if(banderaDelPrimero == true)
+		{
+			mayorEdad = edad;
+			menorEdad = edad;
+			nombreMayor = nombre;
+			nombreMenor = nombre;
+			banderaDelPrimero = false;
+		}
+
+		else if(mayorEdad < edad)
+		{
+			nombreMayor = nombre;
+			mayorEdad = edad;
+		}
+
+		else if(menorEdad > edad)
+		{
+			nombreMenor = nombre;
+			menorEdad = edad;
+		}
+
+		respuesta = prompt("desea ingresar otro nombre y edad?");
+	
+	}
+
+	document.write("la persona mayor es : " + nombreMayor + " que tiene " + mayorEdad + " años" + "<br>");
+	document.write("la persona menor es :" + nombreMenor + " que tiene " + menorEdad + " años"  + "<br>");
+
+
+	
+
+
+
+
+
 
 
 	

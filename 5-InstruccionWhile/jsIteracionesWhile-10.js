@@ -13,17 +13,84 @@ hasta que el usuario quiera, mostrar:
 function mostrar()
 {
 	//declarar contadores y variables 
-	var respuesta;
-	var numeroIngresado;
-	var sumaNegativos=0;
+	let respuesta;
+	let numeroIngresado;
+	let sumaNegativos;
+	let sumaPositivos;
+	let contadorPositivos;
+	let contadorNegativos;
+	let cantidadDeCeros;
+	let cantidadDePares;
+	let promedioPositivos;
+	let promedioNegativos;
+	let diferencia;
 
-	respuesta="si";
 
-	while(respuesta=="si")
+	contadorNegativos = 0;
+	contadorPositivos = 0;
+	sumaNegativos = 0;
+	sumaPositivos = 0;
+	cantidadDePares = 0;
+	cantidadDeCeros = 0;
+
+	respuesta = prompt("desea ingresar  numero?");
+
+	while(respuesta == "si" || respuesta == "SI" || respuesta == "Si")
 	{
 		
-		respuesta=prompt("desea continuar?");
+
+		numeroIngresado = parseFloat(prompt(" ingrese un numero"));
+
+		while(isNaN(numeroIngresado))//validacion
+		{
+			numeroIngresado = parseFloat(prompt("error. ingrese un numero"));
+
+		}
+//      1-Suma de los negativos. 3-Cantidad de positivos.
+		if(numeroIngresado < 0)
+		{ 
+			contadorNegativos = contadorNegativos + 1;
+			sumaNegativos = sumaNegativos + numeroIngresado;
+		}//suma de positivos y cantidad de positivos
+		else if(numeroIngresado > 0)
+		{
+			contadorPositivos = contadorPositivos + 1;
+			sumaPositivos = sumaPositivos + numeroIngresado;
+		}//CANTIDAD DE PARES
+		if(numeroIngresado%2 == 0)
+		{
+			cantidadDePares = cantidadDePares + 1;
+		}//CANTIDAD DE CEROS
+		else 
+		{
+			cantidadDeCeros = cantidadDeCeros + 1;
+		}
+
+		respuesta = prompt("desea ingresar otro numero?");
+
 	}//fin del while
 
-	document.write("la suma de negativos es :"+sumaNegativos);
+	promedioNegativos = sumaNegativos / contadorNegativos;
+	if(contadorNegativos == 0)
+	{
+		promedioNegativos = 1;
+	}
+
+	promedioPositivos = sumaPositivos / contadorPositivos;
+	if(contadorPositivos == 0)
+	{
+		promedioPositivos = 1;
+	}
+
+	diferencia = sumaNegativos + sumaPositivos;
+
+	document.write("la suma de negativos es :" + sumaNegativos +"<br>");
+	document.write("la suma de positivos es :" + sumaPositivos +"<br>");
+	document.write("Cantidad de positivos es:" + contadorPositivos +"<br>");
+	document.write("Cantidad de negativos es:" + contadorNegativos +"<br>");
+	document.write("Cantidad de números pares es:" + cantidadDePares +"<br>");
+	document.write("Cantidad de ceros es:" + cantidadDeCeros +"<br>");	
+	document.write("El promedio de positivos es:" + promedioPositivos +"<br>");
+	document.write("El promedio de negativos es:" + promedioNegativos +"<br>");
+	document.write("Diferencia entre positivos y negativos es:"+ diferencia +"<br>");
 }//FIN DE LA FUNCIÓN
