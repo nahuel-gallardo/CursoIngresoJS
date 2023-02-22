@@ -10,7 +10,7 @@ function mostrar()
 
 	while( !isNaN(sexoIngresado) && sexoIngresado != "m" && sexoIngresado != "f")
 		{
-			prompt("ingrese f ó m .");
+			sexoIngresado = prompt("ingrese f ó m .");
 		}
 
 	if(sexoIngresado == "f")
