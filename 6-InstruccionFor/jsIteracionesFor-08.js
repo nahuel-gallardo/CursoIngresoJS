@@ -27,9 +27,4 @@ function mostrar()
 		alert("el numero que ingreso NO es primo");
 	}
 	
-	
-
-	
-
-
 }//FIN DE LA FUNCIÓN

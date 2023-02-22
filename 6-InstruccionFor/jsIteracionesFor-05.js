@@ -50,14 +50,14 @@ d) La cantidad de alumnos desaprobados (nota < 4)*/
 
 		notaIngresada = parseInt(prompt("ingrese su nota"))
 
-		while(isNaN(notaIngresada))//validacion
+		while(isNaN(notaIngresada) || notaIngresada < 1 || notaIngresada > 10 )//validacion
 			{
-				notaIngresada = parseFloat(prompt("error. ingrese un numero"));
+				notaIngresada = parseFloat(prompt("error. ingrese un numero entre 1 y 10 incluidos"));
 			}
 
-		sexoIngresado = prompt("ingrese f para femenino ó ingrese m para masculino.");
+		sexoIngresado = prompt("Ingrese f para femenino ó ingrese m para masculino.");
 
-		while( !isNaN(sexoIngresado) && sexoIngresado != "m" && sexoIngresado != "f")//validacion
+		while( !isNaN(sexoIngresado) || sexoIngresado != "m" && sexoIngresado != "f")//validacion
 		{
 			sexoIngresado =  prompt("error. ingrese f ó m .");
 		}
@@ -85,14 +85,12 @@ d) La cantidad de alumnos desaprobados (nota < 4)*/
 		if( notaIngresada > 5 && sexoIngresado == "m")
 		{
 			cantidadDeVarones = cantidadDeVarones + 1;
-			
 		}
 		// La cantidad de alumnos desaprobados (nota < 4)
 		if(notaIngresada < 4)
 		{
 			cantidadDesaprobados = cantidadDesaprobados + 1;
 		}
-
 	}
 	
 	if(sexoNotaMasBaja == "m")
@@ -105,7 +103,7 @@ d) La cantidad de alumnos desaprobados (nota < 4)*/
 	}
 
 	document.write("el promedio de las notas es : " + promedio + "<br>");
-	document.write(" La nota más baja es : " + notaMasBaja + ".y el sexo de esa persona es :"+ sexoNotaMasBaja + "<br>");
+	document.write(" La nota más baja es : " + notaMasBaja + ".Y el sexo de esa persona es :"+ sexoNotaMasBaja + "<br>");
 	document.write(" La cantidad de varones que su nota haya sido mayor o igual a 6 es: " + cantidadDeVarones + "<br>");
 	document.write(" La cantidad de alumnos desaprobados es :" + cantidadDesaprobados + "<br>");
 

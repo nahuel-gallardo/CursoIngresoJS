@@ -8,19 +8,20 @@ function mostrar()
 
 	sexoIngresado = prompt("ingrese f ó m .");
 
-	while( !isNaN(sexoIngresado) && sexoIngresado != "m" && sexoIngresado != "f")
-		{
-			sexoIngresado = prompt("ingrese f ó m .");
-		}
+	
+	while( !isNaN(sexoIngresado) || sexoIngresado != "m" && sexoIngresado != "f")
+	{
+		sexoIngresado = prompt("ingrese f ó m .");
+	}
 
 	if(sexoIngresado == "f")
 	{
 		mensaje = "es mujer";
 	}
-		else
-		{
-			mensaje = "es hombre";
-		}
+	else if(sexoIngresado == "m")
+	{
+		mensaje = "es hombre";
+	}
 
 		
 	

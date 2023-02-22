@@ -11,7 +11,7 @@ function mostrar()
 
 	numeroIngresado = parseInt(prompt("ingrese un numero"))
 
-	for( i = 0 ; i < numeroIngresado + 1 ; i++ )
+	for( i = 1 ; i < numeroIngresado ; i++ )
 	{
 		if(numeroIngresado % i == 0)
 		{
