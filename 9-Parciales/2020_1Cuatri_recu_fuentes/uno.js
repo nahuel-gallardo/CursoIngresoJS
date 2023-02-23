@@ -128,18 +128,38 @@ function mostrar()
 	let contadorLimpieza;
 	let contadorComestible;
 	let contadorOtros;
+	let mercaderiaMasAparece;
+	let contadorElaborados;
+	let contadorImportados;
+	let contadorNacionales;
+	let contadorTotal;
+	let porcentajeDeElaborados;
+	let acumuladorPesoLimpieza;
+	let acumuladorPesoComestible;
+	let acumuladorPesoOtros;
 
 	banderaNombreProductoMasPesadoComestible = true;
 	banderaProductoMasCaro = true;
 	banderaNombreProductoMasBaratoElaborado = true;
+	contadorComestible = 0;
+	contadorLimpieza = 0;
+	contadorOtros = 0 ;
+	contadorElaborados = 0;
+	contadorNacionales = 0;
+	contadorImportados = 0;
+	acumuladorPesoLimpieza = 0;
+	acumuladorPesoComestible = 0;
+	acumuladorPesoOtros = 0;
+	respuesta = "si"
+	
 
 
 	while(respuesta == "si")
 	{
-		nombreProducto = prompt("ingrese su nombre");
+		nombreProducto = prompt("ingrese el nombre del producto");
 			while(!isNaN(nombreProducto))
 			{
-				nombreProducto =  prompt("Error.ingrese su nombre");
+				nombreProducto =  prompt("Error.ingrese el nombre del producto");
 			}
 		
 		tipoDeproducto = prompt("de que tipo es el producto?.'limpieza', 'comestible' ó 'otros'.");
@@ -166,6 +186,9 @@ function mostrar()
 		switch(tipoDeproducto)
 		{
 			case "limpieza":
+				contadorLimpieza = contadorLimpieza + 1;
+				acumuladorPesoLimpieza = acumuladorPesoLimpieza + peso;
+				
 				break;
 			case "comestible":
 				//a) el NOMBRE del mas pesado de los comestibles
@@ -175,17 +198,30 @@ function mostrar()
 					nombreProductoMasPesadoComestible = nombreProducto;
 					banderaNombreProductoMasPesadoComestible = false;
 				}
+				contadorComestible = contadorComestible + 1;
+				acumuladorPesoComestible = acumuladorPesoComestible + peso;
 				break;
 			case "otros":
-				break
+				contadorOtros = contadorOtros + 1;
+				acumuladorPesoOtros = acumuladorPesoOtros + peso;
+				break;
 		}
 		switch(procedencia)
 		{
 			case "elaborado":
+				contadorElaborados = contadorElaborados + 1;//c) el NOMBRE del mas barato de los elaborados
+				if(banderaNombreProductoMasBaratoElaborado == true || importeProductoMasBaratoElaborado > importeProducto)
+					{
+						importeProductoMasBaratoElaborado = importeProducto;
+						nombreProductoMasBaratoElaborado = nombreProducto;
+						banderaNombreProductoMasBaratoElaborado = false;
+					}
 				break;
 			case "nacional":
+				contadorNacionales = contadorNacionales + 1;
 				break;
 			case "importado":
+				contadorImportados = contadorImportados + 1;
 				break;
 		}
 		//b) el NOMBRE del mas caro de todos los productos
@@ -195,17 +231,40 @@ function mostrar()
 			nombreProductoMasCaro = nombreProducto;
 			banderaProductoMasCaro = false;
 		}
-		//c) el NOMBRE del mas barato de los elaborados
-		if(banderaNombreProductoMasBaratoElaborado == true || importeProductoMasBaratoElaborado > importeProducto)
+		
+		
+		//la mercaderia que mas aparece
+		if(contadorComestible > contadorLimpieza && contadorComestible > contadorOtros)
 		{
-			importeProductoMasBaratoElaborado = importeProducto;
-			nombreProductoMasBaratoElaborado = nombreProducto;
-			banderaNombreProductoMasBaratoElaborado = false;
+			mercaderiaMasAparece = "comestible";
 		}
-		
-		if
 
-		
-		
+		else if(contadorLimpieza > contadorComestible && contadorLimpieza > contadorOtros)
+		{
+			mercaderiaMasAparece = "limpieza";
+		}
+
+		else
+		{
+			mercaderiaMasAparece = "otros";
+		}
+	respuesta = prompt("desea ingresar mas datos. (si) para continuar");
+		//porcentaje de productos elaborados sobre el toltal
 	}
+
+	contadorTotal = contadorNacionales + contadorElaborados + contadorImportados;
+	porcentajeDeElaborados = (contadorElaborados * 100) / contadorTotal; 
+
+	promedioPesoComestible = acumuladorPesoComestible / contadorComestible;
+	promedioPesoOtros = acumuladorPesoOtros / contadorOtros;
+	promedioPesoLimpieza = acumuladorPesoLimpieza / contadorLimpieza;
+
+	document.write("el NOMBRE del mas pesado de los comestibles "+nombreProductoMasPesadoComestible +"<br>");
+	document.write("el NOMBRE del mas caro de todos los productos "+nombreProductoMasCaro +"<br>");
+	document.write("el NOMBRE del mas barato de los elaborados "+nombreProductoMasBaratoElaborado +"<br>");
+	document.write("el tipo de mercadería que mas aparece "+mercaderiaMasAparece +"<br>");
+	document.write("el porcentaje de productos elaborados por sobre el total "+porcentajeElaboradosDelTotal +"<br>");
+	document.write("peso pormedio comestibles "+ promedioPesoComestible+"<br>");
+	document.write("peso pormedio limpieza "+ promedioPesoLimpieza+"<br>");
+	document.write("peso pormedio otros "+ promedioPesoOtros+"<br>");
 }
