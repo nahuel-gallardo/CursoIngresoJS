@@ -49,22 +49,22 @@ function mostrar()
     while(respuesta == "si"  )
     {
         tipoDeBolsa = prompt("Ingrese tipo de bolsa: 'cal' , 'arena', 'cemento'");
-        while(tipoDeBolsa != "cal" && tipoDeBolsa != "arena" && tipoDeBolsa != "cemento")
-        {
-          tipoDeBolsa = prompt("Error. Ingrese tipo de bolsa: 'cal' , 'arena', 'cemento'");
-        }
+          while(tipoDeBolsa != "cal" && tipoDeBolsa != "arena" && tipoDeBolsa != "cemento")
+            {
+              tipoDeBolsa = prompt("Error. Ingrese tipo de bolsa: 'cal' , 'arena', 'cemento'");
+            }
 
         cantidadBolsas = parseInt(prompt("Ingrese la cantidad de bolsas(0 y 1000)."));
-        while(cantidadBolsas < 0 || cantidadBolsas > 1000)
-        {
-          cantidadBolsas = parseInt(prompt("Ingrese una cantidad de bolsas entre 0 y 1000"))
-        }
+          while(cantidadBolsas < 0 || cantidadBolsas > 1000)
+            {
+              cantidadBolsas = parseInt(prompt("Ingrese una cantidad de bolsas entre 0 y 1000"))
+            }
 
         precioDeBolsa = parseFloat(prompt("Ingrese el precio por unidad de bolsa($0 y $10000)"))
-        while(precioDeBolsa < 0 || precioDeBolsa > 10000)
-        {
-          precioDeBolsa = parseFloat(prompt("Ingrese el precio por unidad de bolsa entre $0 y $10000"))
-        }
+          while(precioDeBolsa < 0 || precioDeBolsa > 10000)
+            {
+              precioDeBolsa = parseFloat(prompt("Ingrese el precio por unidad de bolsa entre $0 y $10000"))
+            }
 
         precioSubtotalDeBolsas = cantidadBolsas * precioDeBolsa;
 
@@ -133,10 +133,8 @@ function mostrar()
     }
 
     document.write(" El importe total a pagar , bruto sin descuento es: " +precioTotalDeBolsas + "<br>");
-    document.write("el importe total a pagar con descuento es:"+ mensaje + "<br>");
+    document.write("el importe total a pagar con descuento es: "+ mensaje + "<br>");
     document.write("tipo con mas cantidad de bolsas es: "+ TipoConMasCantidadDeBolsas + "<br>");
     document.write("El tipo mas caro es: "+ tipoMasCaro + "<br>");
     
-
-
 }
