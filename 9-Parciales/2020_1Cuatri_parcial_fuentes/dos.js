@@ -61,7 +61,7 @@ function mostrar()
         }
 
         precioDeBolsa = parseFloat(prompt("Ingrese el precio por unidad de bolsa($0 y $10000)"))
-        while(precioDeBolsa < 0 || precioDeBolsa > 10000);
+        while(precioDeBolsa < 0 || precioDeBolsa > 10000)
         {
           precioDeBolsa = parseFloat(prompt("Ingrese el precio por unidad de bolsa entre $0 y $10000"))
         }
@@ -132,6 +132,11 @@ function mostrar()
       mensaje = "no se aplico el descuento";
     }
 
-    console.log("el importe tor")
+    document.write(" El importe total a pagar , bruto sin descuento es: " +precioTotalDeBolsas + "<br>");
+    document.write("el importe total a pagar con descuento es:"+ mensaje + "<br>");
+    document.write("tipo con mas cantidad de bolsas es: "+ TipoConMasCantidadDeBolsas + "<br>");
+    document.write("El tipo mas caro es: "+ tipoMasCaro + "<br>");
+    
+
 
 }
