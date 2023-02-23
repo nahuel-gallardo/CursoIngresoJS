@@ -38,7 +38,7 @@ function mostrar()
 
 
 
-	for(i = 0 ; i < 6 ; i++)
+	for(i = 0 ; i < 5 ; i++)
 	{
 		tipoProducto = prompt("que tipo de producto es?");
 		while( !isNaN(tipoProducto) || tipoProducto != "barbijo" && tipoProducto != "jabon" && tipoProducto != "alcohol")
@@ -95,7 +95,7 @@ function mostrar()
 			cantidadTotalDeJabones = cantidadTotalDeJabones + cantidadDeUnidades;
 		}
 	}
-	mensaje = document.write("el alcohol mas barato es: " + alcoholMasBaratoFabricante + "y son " + unidadesAlcoholMasBarato + "<br>" );
-	
+	document.write("el alcohol mas barato es: " + alcoholMasBaratoFabricante + "y son " + unidadesAlcoholMasBarato + "<br>" );
+	document.write("las unidades de jabon que hay en totals son : "+ cantidadTotalDeJabones+ "<br>")
 	
 }
