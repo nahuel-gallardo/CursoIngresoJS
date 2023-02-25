@@ -38,8 +38,9 @@ function mostrar()
     let banderaBolsaMasBarataCemento = true;
     let acumuladorDeArenaPrecio = 0;
     let promedioBolsasArena;
+  
     
-    
+   
     precioSubtotalDeBolsas = 0;
     precioTotalDeBolsas = 0;
     acumuladordorDeBolsas = 0;
@@ -93,6 +94,7 @@ function mostrar()
             acumuladorDeArena = acumuladorDeArena + cantidadBolsas;
             acumuladorDeArenaPrecio = acumuladorDeArenaPrecio + precioDeBolsa;
            
+           
             break;
           case "cemento":
             if(banderaBolsaMasBarataCemento == true || precioDeBolsa > bolsaMasBarataCemento)
@@ -128,13 +130,13 @@ function mostrar()
     }
     promedioBolsasArena = acumuladorDeArenaPrecio / acumuladorDeArena;
 
-    if(cantidadBolsas > 29)
+    if(cantidadBolsas > 45)
     {
-      descuento = 25;
+      descuento = 30;
     }
-    else if(cantidadBolsas < 10)
+    else if(cantidadBolsas < 15)
     {
-      descuento = 15;
+      descuento = 10;
     }
     else
     {
@@ -155,5 +157,5 @@ function mostrar()
     document.write(" El importe total a pagar , bruto sin descuento es: " +precioTotalDeBolsas + "<br>");
     document.write("el importe total a pagar con descuento es: "+ mensaje + "<br>");
     document.write("la bolsa mas cara del cal es: "+ bolsaMasCaraCal + " y las mas barata de cemento es: "+ bolsaMasBarataCemento+ "<br>");
-    document.write("total de bolasas de cemento es: "+acumuladorDeArena+ "y el promedio por compra es: "+acumuladorDeArenaPrecio+ "<br>");
+    document.write("total de bolasas de arena es: "+acumuladorDeArena+ "y el promedio por compra es: "+acumuladorDeArenaPrecio+ "<br>");
 }

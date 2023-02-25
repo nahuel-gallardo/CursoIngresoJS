@@ -69,6 +69,7 @@ function mostrar()
 					}
 					break;
 				case "casado":
+					break;
 				case "viudo"://b) Cuantos mayores de edad estan viudos
 					if(sexoIngresado == "m")
 					{
