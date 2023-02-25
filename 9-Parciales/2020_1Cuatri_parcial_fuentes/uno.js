@@ -109,6 +109,7 @@ function mostrar()
 				acumuladorDePrecioJabon = acumuladorDePrecioJabon + precioProducto;
 				acumuladorJabon = acumuladorJabon + cantidadDeUnidades;
 				contadorJabon = contadorJabon + 1;
+				break;
 		}
 
 		
