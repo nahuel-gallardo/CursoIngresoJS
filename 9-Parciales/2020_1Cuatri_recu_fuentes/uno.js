@@ -103,109 +103,172 @@ function mostrar()
 	e)el porcentaje de productos elaborados por sobre el total
 	f) el promedio de pesos por cada tipo ingresado/
 	*/
-
-	let tipoDeproducto;
-	let nombreProducto;
-	let importeProducto;
-	let procedencia;
-	let peso;
-	let respuesta;
-	let nombreProductoMasPesadoComestible;
-	let comestibleMasPesado;
-	let nombreProductoMasCaro;
-	let importeProductoMasCaro;
-	let nombreProductoMasBaratoElaborado;
-	let productoMasCantidad;
-	let cantidadTotalDeProductos;
-	let porcentajeElaboradosDelTotal;
-	let promedioPesoLimpieza;
-	let promedioPesoComestible;
-	let promedioPesoOtros;
-	let banderaNombreProductoMasPesadoComestible;
-	let banderaProductoMasCaro;
-	let banderaNombreProductoMasBaratoElaborado;
-	let importeProductoMasBaratoElaborado;
-	let contadorLimpieza;
-	let contadorComestible;
-	let contadorOtros;
-
-	banderaNombreProductoMasPesadoComestible = true;
-	banderaProductoMasCaro = true;
-	banderaNombreProductoMasBaratoElaborado = true;
-
-
-	while(respuesta == "si")
-	{
-		nombreProducto = prompt("ingrese su nombre");
-			while(!isNaN(nombreProducto))
-			{
-				nombreProducto =  prompt("Error.ingrese su nombre");
-			}
+	
+		let tipoDeproducto;
+		let nombreProducto;
+		let importeProducto;
+		let procedencia;
+		let peso;
+		let respuesta;
+		let nombreProductoMasPesadoComestible;
+		let comestibleMasPesado;
+		let nombreProductoMasCaro;
+		let importeProductoMasCaro;
+		let nombreProductoMasBaratoElaborado;
+		let productoMasCantidad;
+		let cantidadTotalDeProductos;
+		let porcentajeElaboradosDelTotal;
+		let promedioPesoLimpieza;
+		let promedioPesoComestible;
+		let promedioPesoOtros;
+		let banderaNombreProductoMasPesadoComestible;
+		let banderaProductoMasCaro;
+		let banderaNombreProductoMasBaratoElaborado;
+		let importeProductoMasBaratoElaborado;
+		let contadorLimpieza;
+		let contadorComestible;
+		let contadorOtros;
+		let mercaderiaMasAparece;
+		let contadorElaborados;
+		let contadorImportados;
+		let contadorNacionales;
+		let contadorTotal;
+		let porcentajeDeElaborados;
+		let acumuladorPesoLimpieza;
+		let acumuladorPesoComestible;
+		let acumuladorPesoOtros;
+	
+		banderaNombreProductoMasPesadoComestible = true;
+		banderaProductoMasCaro = true;
+		banderaNombreProductoMasBaratoElaborado = true;
+		contadorComestible = 0;
+		contadorLimpieza = 0;
+		contadorOtros = 0 ;
+		contadorElaborados = 0;
+		contadorNacionales = 0;
+		contadorImportados = 0;
+		acumuladorPesoLimpieza = 0;
+		acumuladorPesoComestible = 0;
+		acumuladorPesoOtros = 0;
+		respuesta = "si"
 		
-		tipoDeproducto = prompt("de que tipo es el producto?.'limpieza', 'comestible' ó 'otros'.");
-			while(!isNaN(tipoDeproducto) || tipoDeproducto != "limpieza" && tipoDeproducto != "comestible" && tipoDeproducto != "otros")
+	
+	
+		while(respuesta == "si")
+		{
+			nombreProducto = prompt("ingrese el nombre del producto");
+				while(!isNaN(nombreProducto))
+				{
+					nombreProducto =  prompt("Error.ingrese el nombre del producto");
+				}
+			
+			tipoDeproducto = prompt("de que tipo es el producto?.'limpieza', 'comestible' ó 'otros'.");
+				while(!isNaN(tipoDeproducto) || tipoDeproducto != "limpieza" && tipoDeproducto != "comestible" && tipoDeproducto != "otros")
+				{
+					tipoDeproducto = prompt("Error.De que tipo es el producto?.'limpieza', 'comestible' ó 'otros'.");
+				}
+			importeProducto = parseFloat(prompt("cual es el importe del producto?(no mayor a 1000 pesos)"));
+				while(isNaN(importeProducto) || importeProducto < 0 || importeProducto > 1000)
+				{
+					importeProducto = parseFloat(prompt("Error.cual es el importe del producto?(no mayor a 1000 pesos)"));
+				}
+			procedencia = prompt("cual es la procedencia?(importado, nacional, elaborado)");
+				while(!isNaN(procedencia) || procedencia != "importado" && procedencia != "nacional" && procedencia != "elaborado")
+				{
+					procedencia = prompt("Error.Cual es la procedencia?(importado, nacional, elaborado)");
+				}
+			peso = parseFloat(prompt("cuanto pesa el producto?(no mayor a 30 kilos)"));
+				while(isNaN(peso) || peso < 0 || peso > 30)
+				{
+					peso = parseFloat(prompt("Error.cuanto pesa el producto?(no mayor a 30 kilos)"));
+				}
+				
+			switch(tipoDeproducto)
 			{
-				tipoDeproducto = prompt("Error.De que tipo es el producto?.'limpieza', 'comestible' ó 'otros'.");
+				case "limpieza":
+					contadorLimpieza = contadorLimpieza + 1;
+					acumuladorPesoLimpieza = acumuladorPesoLimpieza + peso;
+					
+					break;
+				case "comestible":
+					//a) el NOMBRE del mas pesado de los comestibles
+					if(banderaNombreProductoMasPesadoComestible == true || peso > comestibleMasPesado)
+					{
+						comestibleMasPesado = peso;
+						nombreProductoMasPesadoComestible = nombreProducto;
+						banderaNombreProductoMasPesadoComestible = false;
+					}
+					contadorComestible = contadorComestible + 1;
+					acumuladorPesoComestible = acumuladorPesoComestible + peso;
+					break;
+				case "otros":
+					contadorOtros = contadorOtros + 1;
+					acumuladorPesoOtros = acumuladorPesoOtros + peso;
+					break;
 			}
-		importeProducto = parseFloat(prompt("cual es el importe del producto?(no mayor a 1000 pesos)"));
-			while(isNaN(importeProducto) || importeProducto < 0 || importeProducto > 1000)
+			switch(procedencia)
 			{
-				importeProducto = parseFloat(prompt("Error.cual es el importe del producto?(no mayor a 1000 pesos)"));
+				case "elaborado":
+					contadorElaborados = contadorElaborados + 1;//c) el NOMBRE del mas barato de los elaborados
+					if(banderaNombreProductoMasBaratoElaborado == true || importeProductoMasBaratoElaborado > importeProducto)
+						{
+							importeProductoMasBaratoElaborado = importeProducto;
+							nombreProductoMasBaratoElaborado = nombreProducto;
+							banderaNombreProductoMasBaratoElaborado = false;
+						}
+					break;
+				case "nacional":
+					contadorNacionales = contadorNacionales + 1;
+					break;
+				case "importado":
+					contadorImportados = contadorImportados + 1;
+					break;
 			}
-		procedencia = prompt("cual es la procedencia?(importado, nacional, elaborado)");
-			while(!isNaN(procedencia) || procedencia != "importado" && procedencia != "nacional" && procedencia != "elaborado")
+			//b) el NOMBRE del mas caro de todos los productos
+			if(banderaProductoMasCaro == true || importeProducto > importeProductoMasCaro)
 			{
-				procedencia = prompt("Error.Cual es la procedencia?(importado, nacional, elaborado)");
-			}
-		peso = parseFloat(prompt("cuanto pesa el producto?(no mayor a 30 kilos)"));
-			while(isNaN(peso) || peso < 0 || peso > 30)
-			{
-				peso = parseFloat(prompt("Error.cuanto pesa el producto?(no mayor a 30 kilos)"));
+				importeProductoMasCaro = importeProducto;
+				nombreProductoMasCaro = nombreProducto;
+				banderaProductoMasCaro = false;
 			}
 			
-		switch(tipoDeproducto)
-		{
-			case "limpieza":
-				break;
-			case "comestible":
-				//a) el NOMBRE del mas pesado de los comestibles
-				if(banderaNombreProductoMasPesadoComestible == true || peso > comestibleMasPesado)
-				{
-					comestibleMasPesado = peso;
-					nombreProductoMasPesadoComestible = nombreProducto;
-					banderaNombreProductoMasPesadoComestible = false;
-				}
-				break;
-			case "otros":
-				break
+			
+			//la mercaderia que mas aparece
+			if(contadorComestible > contadorLimpieza && contadorComestible > contadorOtros)
+			{
+				mercaderiaMasAparece = "comestible";
+			}
+	
+			else if(contadorLimpieza > contadorComestible && contadorLimpieza > contadorOtros)
+			{
+				mercaderiaMasAparece = "limpieza";
+			}
+	
+			else
+			{
+				mercaderiaMasAparece = "otros";
+			}
+		respuesta = prompt("desea ingresar mas datos. (si) para continuar");
+			//porcentaje de productos elaborados sobre el toltal
 		}
-		switch(procedencia)
-		{
-			case "elaborado":
-				break;
-			case "nacional":
-				break;
-			case "importado":
-				break;
-		}
-		//b) el NOMBRE del mas caro de todos los productos
-		if(banderaProductoMasCaro == true || importeProducto > importeProductoMasCaro)
-		{
-			importeProductoMasCaro = importeProducto;
-			nombreProductoMasCaro = nombreProducto;
-			banderaProductoMasCaro = false;
-		}
-		//c) el NOMBRE del mas barato de los elaborados
-		if(banderaNombreProductoMasBaratoElaborado == true || importeProductoMasBaratoElaborado > importeProducto)
-		{
-			importeProductoMasBaratoElaborado = importeProducto;
-			nombreProductoMasBaratoElaborado = nombreProducto;
-			banderaNombreProductoMasBaratoElaborado = false;
-		}
-		
-		if
+	
+		contadorTotal = contadorNacionales + contadorElaborados + contadorImportados;
+		porcentajeDeElaborados = (contadorElaborados * 100) / contadorTotal; 
+	
+		promedioPesoComestible = acumuladorPesoComestible / contadorComestible;
+		promedioPesoOtros = acumuladorPesoOtros / contadorOtros;
+		promedioPesoLimpieza = acumuladorPesoLimpieza / contadorLimpieza;
+	
+		document.write("el NOMBRE del mas pesado de los comestibles "+nombreProductoMasPesadoComestible +"<br>");
+		document.write("el NOMBRE del mas caro de todos los productos "+nombreProductoMasCaro +"<br>");
+		document.write("el NOMBRE del mas barato de los elaborados "+nombreProductoMasBaratoElaborado +"<br>");
+		document.write("el tipo de mercadería que mas aparece "+mercaderiaMasAparece +"<br>");
+		document.write("el porcentaje de productos elaborados por sobre el total "+porcentajeDeElaborados +"<br>");
+		document.write("peso pormedio comestibles "+ promedioPesoComestible+"<br>");
+		document.write("peso pormedio limpieza "+ promedioPesoLimpieza+"<br>");
+		document.write("peso pormedio otros "+ promedioPesoOtros+"<br>");
 
 		
 		
-	}
 }
+

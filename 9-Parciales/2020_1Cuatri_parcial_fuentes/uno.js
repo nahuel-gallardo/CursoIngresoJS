@@ -30,11 +30,34 @@ function mostrar()
 	let banderaProductoMasUnidades;
 	let productoConMasUnidades;
 	let cantidadTipoMasUnidades;
-	let cantidadTotalDeJabones;
+	let acumuladorJabon;
+	let acumuladorBarbijo;
+	let acumuladorAlcohol;
+	let promedio;
+	let acumuladorDePrecioAlcohol;
+	let acumuladorDePreciobarbijo;
+	let acumuladorDePrecioJabon;
+	let mayorContador;
+	let contadorAlcohol;
+	let contadorBarbijo;
+	let contadorJabon;
+
+
 
 	banderaAlcohol = true;
 	banderaProductoMasUnidades = true;
-	cantidadTotalDeJabones = 0;
+	acumuladorJabon = 0;
+	acumuladorAlcohol = 0;
+	acumuladorBarbijo = 0;
+	acumuladorDePrecioAlcohol = 0;
+	acumuladorDePreciobarbijo = 0;
+	acumuladorDePrecioJabon = 0;
+	mayorContador = 0;
+	contadorAlcohol = 0;
+	contadorBarbijo = 0;
+	contadorJabon = 0;
+	
+
 
 
 
@@ -57,45 +80,76 @@ function mostrar()
 		{
 			cantidadDeUnidades = parseInt(prompt("la cantidad unidades del producto tiene que ser entre 1 y 1000. cuantas son las unidades del producto?"));
 		}
-
 		marcaDelFabricante = prompt("cual es la marca del fabricante?");
 		while(!isNaN(marcaDelFabricante))
 		{
 			marcaDelFabricante = prompt("cual es la marca del fabricante?");
 		}
-		//a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
-		if(banderaAlcohol == true && tipoProducto == "alcohol")
-		{
-			precioAlcoholMasBarato = precioProducto;
-			alcoholMasBaratoFabricante = marcaDelFabricante;
-			unidadesAlcoholMasBarato = cantidadDeUnidades;
 
-			banderaAlcohol = false;
-		}
-		else if(tipoProducto == "alcohol" && precioAlcoholMasBarato > precioProducto)
+		switch(tipoProducto)
 		{
-			precioAlcoholMasBarato = precioProducto;
-			alcoholMasBaratoFabricante = marcaDelFabricante;
-			unidadesAlcoholMasBarato = cantidadDeUnidades;
+			case "alcohol"://a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
+				if(banderaAlcohol == true || precioAlcoholMasBarato > precioProducto)
+					{
+						precioAlcoholMasBarato = precioProducto;
+						alcoholMasBaratoFabricante = marcaDelFabricante;
+						unidadesAlcoholMasBarato = cantidadDeUnidades;
+						banderaAlcohol = false;
+					}
+				acumuladorAlcohol = acumuladorAlcohol + cantidadDeUnidades;
+				acumuladorDePrecioAlcohol = acumuladorDePrecioAlcohol + precioProducto;
+				contadorAlcohol = contadorAlcohol + 1;	
+				break;
+			case "barbijo":
+				acumuladorBarbijo = acumuladorBarbijo + cantidadDeUnidades;
+				acumuladorDePreciobarbijo = acumuladorDePreciobarbijo + precioProducto;
+				contadorBarbijo = contadorBarbijo + 1;
+				break;
+			case "jabon":
+				acumuladorDePrecioJabon = acumuladorDePrecioJabon + precioProducto;
+				acumuladorJabon = acumuladorJabon + cantidadDeUnidades;
+				contadorJabon = contadorJabon + 1;
 		}
+
+		
+	
+		
+		
 		//b) Del tipo con mas unidades, el promedio por compra
-		if(banderaProductoMasUnidades == true)
+		if(acumuladorAlcohol > acumuladorBarbijo && acumuladorAlcohol > acumuladorJabon)
 		{
-			productoConMasUnidades = tipoProducto;
-			cantidadTipoMasUnidades = cantidadDeUnidades;
+			productoConMasUnidades = acumuladorAlcohol;
 		}
-		else if(cantidadTipoMasUnidades < cantidadDeUnidades)
+		else if(acumuladorBarbijo > acumuladorAlcohol && acumuladorBarbijo > acumuladorJabon)
 		{
-			cantidadTipoMasUnidades = cantidadDeUnidades;
-			productoConMasUnidades  = tipoProducto;
+			productoConMasUnidades = acumuladorBarbijo;
 		}
-		//c) Cuántas unidades de jabones hay en total
-		if(tipoProducto == "jabon")
+		else
 		{
-			cantidadTotalDeJabones = cantidadTotalDeJabones + cantidadDeUnidades;
+			productoConMasUnidades = acumuladorJabon;
 		}
+
+		if(contadorAlcohol > contadorBarbijo && contadorAlcohol > contadorJabon)
+		{
+			mayorContador = contadorAlcohol;
+		}
+		else if(contadorBarbijo > contadorAlcohol && contadorBarbijo > contadorJabon)
+		{
+			mayorContador = contadorBarbijo;
+		}
+		else
+		{
+			mayorContador = contadorJabon;
+		}
+
+
 	}
+	promedio = productoConMasUnidades / mayorContador;
+
+
+
 	document.write("el alcohol mas barato es: " + alcoholMasBaratoFabricante + "y son " + unidadesAlcoholMasBarato + "<br>" );
-	document.write("las unidades de jabon que hay en totals son : "+ cantidadTotalDeJabones+ "<br>")
+	document.write("el promedio de compra del producto con mas cantidad de unidades es: " + promedio + "<br>");
+	document.write("las unidades de jabon que hay en totals son : "+ acumuladorJabon+ "<br>");
 	
 }
